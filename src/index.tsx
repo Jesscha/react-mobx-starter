@@ -3,11 +3,13 @@ import * as ReactDOM from "react-dom";
 import { App } from "./App";
 import { AppContext, stores } from "./AppContext";
 
-console.log(AppContext)
+
 
 const renderApp = (root: Element, App: React.ComponentClass) => {
   ReactDOM.render(
-    <AppContext.Provider value={stores}>
+    <AppContext.Provider 
+    value={stores}
+    >
       <App />
     </AppContext.Provider>,
     root

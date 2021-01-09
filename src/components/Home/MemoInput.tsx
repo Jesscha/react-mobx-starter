@@ -9,7 +9,8 @@ interface Props {}
 export const MemoInput = observer(function(props: Props) {
   
   
-
+    const { memoStore } = React.useContext(AppContext);
+    const inputElRef = React.useRef<HTMLInputElement>()
 
 
   return (
@@ -20,16 +21,36 @@ export const MemoInput = observer(function(props: Props) {
           flexFlow: 'column'
           
       }}>
+          
         <input 
         style ={{
             display : 'block',
         }}
         type="text"
         placeholder = "add Memo"
+        ref = {inputElRef}
         />
+
+        <button
+            onClick = {()=>{
+                memoStore.addMemo( inputElRef.current.value)
+                inputElRef.current.value = ''
+            }}
+        >
+            submit
+        </button>
+
+
         <div>
             <h3>memo</h3>
             <div>
+                {memoStore.memos.map((el, i) =>{
+                    return(
+                        <p key = {i}>
+                            {el}
+                        </p>
+                    )
+                })}
 
             </div>
         </div>
