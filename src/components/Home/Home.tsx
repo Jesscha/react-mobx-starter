@@ -3,6 +3,7 @@ import * as React from "react";
 import { AppContext } from "../../AppContext";
 import { Button, Container, NumberDisplay } from "./styles";
 import {MemoInput} from './MemoInput'
+import { Todos } from "./Todo";
 
 interface Props {}
 // observer로 함수를 감싸주어서 mobx를 사용할수 있게 만든다.
@@ -29,6 +30,7 @@ export const Home = observer(function(props: Props) {
     </Container>
     <MemoInput
       />
+    <Todos />
     </>
   );
 });
